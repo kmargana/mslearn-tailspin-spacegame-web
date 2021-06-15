@@ -33,12 +33,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: ADOSecurityScanner@1
-  inputs:
-    OrgName: '$(System.CollectionUri)'
-    ProjectNames: '$(System.TeamProject)'
-    ScanFilter: 'Org_Project_User'
-
 - task: Veracode@3
   inputs:
     ConnectionDetailsSelection: 'Endpoint'
