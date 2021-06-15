@@ -32,4 +32,7 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: AzSKARMTemplateChecker@4
+
+- task: FuncToolsInstaller@0
+  inputs:
+    version: 'latest'
