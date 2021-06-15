@@ -15,3 +15,6 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: AzSKSVTs@4
+  inputs:
+    GenerateMethodParameterSetSelection: 'ResourceGroupName'
