@@ -1,9 +1,7 @@
 # ASP.NET Core
-- task: ADOSecurityScanner@1
+- task: ServiceFabricPowerShell@1
   inputs:
-    OrgName: '$(System.CollectionUri)'
-    ProjectNames: '$(System.TeamProject)'
-    ScanFilter: 'Org_Project_User'
+    ScriptType: 'FilePath'
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
