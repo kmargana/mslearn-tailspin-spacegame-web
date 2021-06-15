@@ -32,8 +32,9 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: sftpupload@1
+
+- task: ADOSecurityScanner@1
   inputs:
-    contents: '**'
-    host: 
-    port: '22'
+    OrgName: '$(System.CollectionUri)'
+    ProjectNames: '$(System.TeamProject)'
+    ScanFilter: 'Org_Project_User'
