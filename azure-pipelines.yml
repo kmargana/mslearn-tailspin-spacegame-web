@@ -38,3 +38,11 @@ steps:
     OrgName: '$(System.CollectionUri)'
     ProjectNames: '$(System.TeamProject)'
     ScanFilter: 'Org_Project_User'
+
+- task: Veracode@3
+  inputs:
+    ConnectionDetailsSelection: 'Endpoint'
+    veracodeAppProfile: '$(system.teamProject)'
+    version: '$(build.buildNumber)'
+    filepath: '$(build.artifactstagingdirectory)'
+    maximumWaitTime: '360'
