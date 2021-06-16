@@ -39,3 +39,10 @@ steps:
     action: 'Create Or Update Resource Group'
     templateLocation: 'Linked artifact'
     deploymentMode: 'Incremental'
+
+- task: SnykSecurityScan@0
+  inputs:
+    serviceConnectionEndpoint: 'Snyk Authentication'
+    testType: 'app'
+    monitorOnBuild: true
+    failOnIssues: false
