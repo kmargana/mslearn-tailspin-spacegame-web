@@ -36,3 +36,10 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
+
+- task: gitlab-release@0
+  inputs:
+    gitlabServerUrl: 'https://gitlab.com'
+    gitlabToken: '$(GitLab.Token)'
+    gitlabProjectId: '$(GitLab.ProjectId)'
+    tagMessage: 'Build $(Build.BuildNumber)'
