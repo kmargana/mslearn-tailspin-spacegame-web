@@ -37,5 +37,6 @@ steps:
 - task: NexusIqPipelineTask@1
   inputs:
     nexusIqService: 'New Nexus IQ'
+    applicationId: 'publicId'
     stage: 'Build'
     ignoreSystemError: true
