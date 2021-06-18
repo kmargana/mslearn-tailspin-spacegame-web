@@ -34,6 +34,7 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
+
 - task: AzSKARMTemplateChecker@4
   inputs:
-    ARMTemplateFilePath: 'C:\Users\kmargana\mslearn-tailspin-spacegame-web'
+    Recurse: true
