@@ -37,7 +37,3 @@ steps:
 - task: AzSKARMTemplateChecker@4
   inputs:
     ARMTemplateFilePath: 'C:\Users\kmargana\mslearn-tailspin-spacegame-web'
-
-
-- task: AzSKSVTs@4
-  inputs:
