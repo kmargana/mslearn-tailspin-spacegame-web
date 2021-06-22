@@ -32,3 +32,10 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+- task: dependency-check-build-task@6
+  inputs:
+    projectName: 'SecurityScan'
+    scanPath: '**/*.csproj'
+    format: 'HTML, JUNIT'
