@@ -37,3 +37,10 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
+
+
+- task: dependency-check-build-task@6
+  inputs:
+    projectName: 'SecurityScan'
+    scanPath: '**/*.csproj'
+    format: 'HTML'
