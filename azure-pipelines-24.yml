@@ -35,4 +35,3 @@ steps:
 
 
 - task: nexusArtifactUpload@0
-  inputs:
