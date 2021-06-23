@@ -40,8 +40,3 @@ steps:
     testType: 'app'
     monitorOnBuild: true
     failOnIssues: false
-
-
-- task: WhiteSource@21
-  inputs:
-    cwd: '$(System.DefaultWorkingDirectory)'
