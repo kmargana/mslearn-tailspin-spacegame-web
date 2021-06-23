@@ -36,7 +36,7 @@ steps:
 
 - task: SnykSecurityScan@0
   inputs:
-    serviceConnectionEndpoint: 'meei'
+    serviceConnectionEndpoint: 'Snyk Authentication'
     testType: 'app'
     monitorOnBuild: true
     failOnIssues: false
