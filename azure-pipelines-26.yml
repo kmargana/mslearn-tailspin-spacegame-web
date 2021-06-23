@@ -37,5 +37,5 @@ steps:
 - task: NexusIqPipelineTask@1
   inputs:
     nexusIqService: 'New Nexus IQ'
-    applicationId: 'my-app'
+    applicationId: 'myApplication'
     stage: 'Build'
