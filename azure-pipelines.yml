@@ -33,10 +33,3 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-
-- task: SnykSecurityScan@0
-  inputs:
-    serviceConnectionEndpoint: 'Snyk Authentication'
-    testType: 'app'
-    monitorOnBuild: true
-    failOnIssues: false
