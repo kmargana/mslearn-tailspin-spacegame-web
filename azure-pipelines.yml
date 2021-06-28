@@ -33,3 +33,19 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'kmargana'
+    scannerMode: 'MSBuild'
+    projectKey: 'kmargana_kmargana'
+    projectName: 'kmargana'
+
+
+- task: SonarCloudAnalyze@1
+
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
