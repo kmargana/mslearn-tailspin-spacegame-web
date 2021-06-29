@@ -37,11 +37,12 @@ steps:
   inputs:
     version: 'latest'
 
-- task: owaspzap@1
-  inputs:
-    aggressivemode: true
 
-    
 - task: dependency-check-build-task@6
   inputs:
     format: 'HTML'
+
+
+- task: owaspzap@1
+  inputs:
+    aggressivemode: true
