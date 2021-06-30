@@ -38,8 +38,8 @@ steps:
     version: 'latest'
 
 
-- task: dependency-check-build-task@6
+- task: NexusIqPipelineTask@1
   inputs:
-    projectName: 'SecurityScan'
-    scanPath: '**/*.csproj'
-    format: 'HTML, JUNIT'
+    nexusIqService: 'New Nexus IQ'
+    applicationId: 'myApplication'
+    stage: 'Build'
