@@ -1,0 +1,42 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+
+- task: gitlab-release@0
+  inputs:
+    gitlabServerUrl: 'https://gitlab.com'
+    gitlabToken: 'o8bx8rd4G1AqoeqjnjsY'
+    gitlabProjectId: 'https://dev.azure.com/kmargana/kmargana/_apps/hub/ms.vss-build-web.ci-designer-hub?sourceProvider=github&telemetrySession=e3d6d30c-3d91-4db0-bc89-64fa81908ea1&key=useWellKnownStrongBoxLocation&githubhandle=kmargana&avatarurl=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F84513656%3Fv%3D4&repositoryId=kmargana%2Fmslearn-tailspin-spacegame-web&repositoryName=kmargana%2Fmslearn-tailspin-spacegame-web&branch=master&connectionId=4c54a1ac-4aea-49c0-8e8e-f7c383842116&repositoryUrl=https%3A%2F%2Fgithub.com%2Fkmargana%2Fmslearn-tailspin-spacegame-web&sourceProviderComplete=true&template=ASP.NET%20Core%20(.NET%20Framework)'
+    tagMessage: 'Build $(Build.BuildNumber)'
