@@ -34,9 +34,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-- task: gitlab-release@0
+- task: NexusIqPipelineTask@1
   inputs:
-    gitlabServerUrl: 'https://gitlab.com'
-    gitlabToken: 'o8bx8rd4G1AqoeqjnjsY'
-    gitlabProjectId: 'https://dev.azure.com/kmargana/kmargana/_apps/hub/ms.vss-build-web.ci-designer-hub?sourceProvider=github&telemetrySession=e3d6d30c-3d91-4db0-bc89-64fa81908ea1&key=useWellKnownStrongBoxLocation&githubhandle=kmargana&avatarurl=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F84513656%3Fv%3D4&repositoryId=kmargana%2Fmslearn-tailspin-spacegame-web&repositoryName=kmargana%2Fmslearn-tailspin-spacegame-web&branch=master&connectionId=4c54a1ac-4aea-49c0-8e8e-f7c383842116&repositoryUrl=https%3A%2F%2Fgithub.com%2Fkmargana%2Fmslearn-tailspin-spacegame-web&sourceProviderComplete=true&template=ASP.NET%20Core%20(.NET%20Framework)'
-    tagMessage: 'Build $(Build.BuildNumber)'
+    nexusIqService: 'New Nexus IQ'
+    applicationId: 'my-app'
+    stage: 'Build'
+    scanTargets: '**/*.jar'
+    ignoreSystemError: true
