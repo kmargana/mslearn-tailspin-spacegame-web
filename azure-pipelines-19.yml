@@ -40,3 +40,10 @@ steps:
     testType: 'app'
     monitorOnBuild: true
     failOnIssues: false
+
+
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'service_connection'
+    stage: 'Build'
+    ignoreSystemError: true
