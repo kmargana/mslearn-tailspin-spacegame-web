@@ -34,7 +34,9 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-
-- task: AzSKARMTemplateChecker@4
+- task: SnykSecurityScan@0
   inputs:
-    Recurse: true
+    serviceConnectionEndpoint: 'SnykSec'
+    testType: 'app'
+    monitorOnBuild: true
+    failOnIssues: false
