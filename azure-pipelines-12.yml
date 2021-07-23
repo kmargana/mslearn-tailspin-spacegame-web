@@ -46,9 +46,20 @@ steps:
     format: 'HTML'
 
 
-- task: SnykSecurityScan@0
+- task: SonarCloudPrepare@1
   inputs:
-    serviceConnectionEndpoint: 'Snyk Authentication'
-    testType: 'app'
-    monitorOnBuild: true
-    failOnIssues: false
+    SonarCloud: 'SonarCloud'
+    organization: 'kmargana'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'kmargana_kmargana'
+    cliProjectName: 'kmargana'
+    cliSources: '.'
+
+
+- task: SonarCloudAnalyze@1
+
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
